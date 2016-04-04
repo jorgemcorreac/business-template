@@ -30,7 +30,6 @@ namespace Api
 			{
 				c.SingleApiVersion("v1", "Api");
 				c.IncludeXmlComments(GetXmlCommentsPath());
-				c.IncludeXmlComments(GetXmlCommentsPath());
 			}).EnableSwaggerUi();
 
 			app.UseWebApi(config);
