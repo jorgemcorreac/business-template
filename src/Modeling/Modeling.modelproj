@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b44b5c4e-4b70-42db-9e9c-694133adffc3}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>Modeling</Name>
+    <RootNamespace>Modeling</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\Modeling.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="Arquitecture.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Arquitecture.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Arquitecture.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Arquitecture.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Arquitecture.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Api\Api.csproj">
+      <Name>Api</Name>
+      <Project>{ad098635-fe6a-47d2-b380-1ec8cf0cc560}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Name>Domain</Name>
+      <Project>{66680213-3748-496c-a743-aad96265a17f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Crosscutting.Core\Infrastructure.Crosscutting.Core.csproj">
+      <Name>Infrastructure.Crosscutting.Core</Name>
+      <Project>{4fc54497-c60d-4d5e-bc49-46ca3a24c9e6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Crosscutting.NetFramework\Infrastructure.Crosscutting.NetFramework.csproj">
+      <Name>Infrastructure.Crosscutting.NetFramework</Name>
+      <Project>{d3563558-4ddf-4c02-8b8d-1fb3d1943721}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj">
+      <Name>Infrastructure.Data</Name>
+      <Project>{3fbe7763-3b26-410f-a723-e8831e181405}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

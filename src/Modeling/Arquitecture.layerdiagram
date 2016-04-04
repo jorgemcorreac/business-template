@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="20ef4177-debf-4275-9808-d56e4ab9de6d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="96cbc095-cf40-459b-8fd7-e7e2ef304ea9" name="Domain">
+      <references>
+        <reference Id="b5f665cc-cda5-4e04-be25-0cfe41f625c2" name="Domain">
+          <ArtifactNode Label="Domain" Category="CodeSchema_Project" Id="(Assembly=../Domain/Domain.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Domain)" Label="Domain.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="c766998b-6749-4e1d-8686-48bf1a7bc398" name="Services">
+      <childLayers>
+        <layer Id="fdcf963b-d265-49a4-9832-9783e5e4539d" name="Api">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="bfc1dd66-267d-4d3b-bd30-ac0455b8e838" direction="Forward">
+              <layerMoniker Id="96cbc095-cf40-459b-8fd7-e7e2ef304ea9" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="a0d176da-05e6-4c2c-9d2e-5ab346d7af48" direction="Forward">
+              <layerMoniker Id="7efd2122-8026-4a4a-859e-f329577de870" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="bc728ca9-501e-4b80-81ab-fe3ec55b6d71" direction="Forward">
+              <layerMoniker Id="e01905da-ea40-488b-b556-452d73acd9cd" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="9b101265-4cf8-4792-bc43-4ba6464bf6ad" name="Api">
+              <ArtifactNode Label="Api" Category="CodeSchema_Project" Id="(Assembly=../Api/Api.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Api)" Label="Api.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="f63efa31-71fd-43eb-865f-b2116bbfb931" name="Presentation">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="6a55949a-1e78-4d4f-9f40-12e9e6fa4513" direction="Forward">
+          <layerMoniker Id="c766998b-6749-4e1d-8686-48bf1a7bc398" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="5fd2e31b-dce7-4435-bbf3-56589f48a454" name="Infrastructure">
+      <childLayers>
+        <layer Id="7efd2122-8026-4a4a-859e-f329577de870" name="Data">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="24341ae8-96c6-4187-99c5-b528ce76cb92" direction="Forward">
+              <layerMoniker Id="e01905da-ea40-488b-b556-452d73acd9cd" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="52d2f51a-920f-414e-a38d-aaeea2b19432" direction="Forward">
+              <layerMoniker Id="96cbc095-cf40-459b-8fd7-e7e2ef304ea9" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="0d824d1d-56dc-4e4a-bef1-57f4f8852e55" name="Infrastructure.Data">
+              <ArtifactNode Label="Infrastructure.Data" Category="CodeSchema_Project" Id="(Assembly=../Infrastructure.Data/Infrastructure.Data.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Infrastructure.Data)" Label="Infrastructure.Data.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="e01905da-ea40-488b-b556-452d73acd9cd" name="Crosscuting">
+          <childLayers>
+            <layer Id="971ff425-9f9c-4de7-9f60-3e2c897890c4" name="Core">
+              <references>
+                <reference Id="ca612159-5504-4cf6-94e4-394e6abb05d4" name="Infrastructure.Crosscutting.Core">
+                  <ArtifactNode Label="Infrastructure.Crosscutting.Core" Category="CodeSchema_Project" Id="(Assembly=../Infrastructure.Crosscutting.Core/Infrastructure.Crosscutting.Core.csproj)">
+                    <Category Ref="File" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=.Infrastructure.Crosscutting.Core)" Label=".Infrastructure.Crosscutting.Core.dll" Category="CodeSchema_Assembly">
+                    <Category Ref="FileSystem.Category.FileOfType.dll" />
+                    <LinkCategory Ref="Produces" />
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="47e7c161-8974-4e11-8e07-26ec89835c1a" name="NetFramework">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="522ed95c-5003-4c2c-935b-e047ae475577" direction="Forward">
+                  <layerMoniker Id="971ff425-9f9c-4de7-9f60-3e2c897890c4" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+              <references>
+                <reference Id="d967f2f7-6e0e-4f3b-8100-d3de9bf29dc1" name="Infrastructure.Crosscutting.NetFramework">
+                  <ArtifactNode Label="Infrastructure.Crosscutting.NetFramework" Category="CodeSchema_Project" Id="(Assembly=../Infrastructure.Crosscutting.NetFramework/Infrastructure.Crosscutting.NetFramework.csproj)">
+                    <Category Ref="File" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=Infrastructure.Crosscutting.NetFramework)" Label="Infrastructure.Crosscutting.NetFramework.dll" Category="CodeSchema_Assembly">
+                    <Category Ref="FileSystem.Category.FileOfType.dll" />
+                    <LinkCategory Ref="Produces" />
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>
