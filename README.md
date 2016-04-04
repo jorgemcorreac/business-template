@@ -1,3 +1,6 @@
+
+![VSTS Build Badge](https://jorgecorrea.visualstudio.com/DefaultCollection/_apis/public/build/definitions/2a83ed81-0619-4a01-b34f-0b250c18c562/3/badge)
+
 #Business Template
 
 This is a service solution that can be used as a template to generate applications using ASP.Net Web Api. 
