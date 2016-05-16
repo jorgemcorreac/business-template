@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -34,15 +35,15 @@ namespace Api.Controllers
 		///     Get all products
 		/// </summary>
 		/// <returns></returns>
-		public IQueryable<Product> GetProducts() => _ctx.Products;
+        public async Task<IEnumerable<Product>> GetProducts() => await _ctx.Products.ToListAsync();
 
-		// GET: api/Products/5
-		/// <summary>
-		///     Get a product by id
-		/// </summary>
-		/// <param name="id">The product id</param>
-		/// <returns></returns>
-		[ResponseType(typeof (Product))]
+        // GET: api/Products/5
+        /// <summary>
+        ///     Get a product by id
+        /// </summary>
+        /// <param name="id">The product id</param>
+        /// <returns></returns>
+        [ResponseType(typeof (Product))]
 		public async Task<IHttpActionResult> GetProduct(int id)
 		{
 			throw new Exception("Exception to test the overall exception handling");

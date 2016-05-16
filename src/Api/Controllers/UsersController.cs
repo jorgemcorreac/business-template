@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace Api.Controllers
 		///     Get all users
 		/// </summary>
 		/// <returns></returns>
-		public IQueryable<User> GetUsers() => _ctx.Users;
+		public async Task<IEnumerable<User>> GetUsers() => await _ctx.Users.ToListAsync();
 
 		// GET: api/Users/5
 		/// <summary>
