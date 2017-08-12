@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.Crosscutting.Core.Validator
@@ -8,7 +7,7 @@ namespace Infrastructure.Crosscutting.Core.Validator
 	{
 		bool IsValid<TEntity>(TEntity item) where TEntity : class;
 
-		IEnumerable<String> GetInvalidMessages<TEntity>(TEntity item) where TEntity : class;
+		IEnumerable<string> GetInvalidMessages<TEntity>(TEntity item) where TEntity : class;
 
 		IList<ValidationResult> GetValidationResults<TEntity>(TEntity item) where TEntity : class;
 	}

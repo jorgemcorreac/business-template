@@ -18,7 +18,7 @@ namespace Domain.Tests
 			};
 
 			//act
-			IEntityValidator validator = EntityValidatorFactory.CreateValidator();
+			var validator = EntityValidatorFactory.CreateValidator();
 			var validationResults = validator.GetValidationResults(product).ToList();
 
 			//write to the console output
@@ -41,7 +41,7 @@ namespace Domain.Tests
 			};
 
 			//act
-			IEntityValidator validator = EntityValidatorFactory.CreateValidator();
+			var validator = EntityValidatorFactory.CreateValidator();
 			var validationResults = validator.GetValidationResults(product).ToList();
 
 			//write to the console output
@@ -64,7 +64,7 @@ namespace Domain.Tests
 			};
 
 			//act
-			IEntityValidator validator = EntityValidatorFactory.CreateValidator();
+			var validator = EntityValidatorFactory.CreateValidator();
 			var validationResults = validator.GetValidationResults(product).ToList();
 
 			//write to the console output
@@ -111,7 +111,7 @@ namespace Domain.Tests
 			};
 
 			//act
-			IEntityValidator validator = EntityValidatorFactory.CreateValidator();
+			var validator = EntityValidatorFactory.CreateValidator();
 			var validationResults = validator.GetValidationResults(product).ToList();
 
 			//write to the console output
@@ -135,7 +135,7 @@ namespace Domain.Tests
 			};
 
 			//act
-			IEntityValidator validator = EntityValidatorFactory.CreateValidator();
+			var validator = EntityValidatorFactory.CreateValidator();
 			var validationResults = validator.GetValidationResults(product).ToList();
 
 			//write to the console output
@@ -161,7 +161,7 @@ namespace Domain.Tests
 			};
 
 			//act
-			IEntityValidator validator = EntityValidatorFactory.CreateValidator();
+			var validator = EntityValidatorFactory.CreateValidator();
 			var validationResults = validator.GetValidationResults(product).ToList();
 
 			//write to the console output

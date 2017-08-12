@@ -32,7 +32,7 @@ namespace Infrastructure.Crosscutting.NetFramework.Validator
 			if (typeof(IValidatableObject).IsAssignableFrom(typeof(TEntity)))
 			{
 				var validationContext = new ValidationContext(item, null, null);
-				IEnumerable<ValidationResult> validationsObject = ((IValidatableObject)item).Validate(validationContext);
+				var validationsObject = ((IValidatableObject)item).Validate(validationContext);
 				validation.AddRange(validationsObject);
 			}
 
@@ -40,8 +40,8 @@ namespace Infrastructure.Crosscutting.NetFramework.Validator
 				.Cast<PropertyDescriptor>()
 				.SelectMany(property => property.Attributes.OfType<ValidationAttribute>(),
 					(property, attribute) => new { property, attribute })
-				.Where(@t => !@t.attribute.IsValid(@t.property.GetValue(item)))
-				.Select(@t => new ValidationResult(@t.attribute.FormatErrorMessage(string.Empty), new List<string> { @t.property.Name }))
+				.Where(t => !t.attribute.IsValid(t.property.GetValue(item)))
+				.Select(t => new ValidationResult(t.attribute.FormatErrorMessage(string.Empty), new List<string> { t.property.Name }))
 				.ToList();
 
 			if (validationsAttribute.Any())
@@ -63,26 +63,25 @@ namespace Infrastructure.Crosscutting.NetFramework.Validator
 			return validationErrors;
 		}
 
-		private void SetValidatableObjectErrors<TEntity>(TEntity item, List<string> errors) where TEntity : class
+		private static void SetValidatableObjectErrors<TEntity>(TEntity item, List<string> errors) where TEntity : class
 		{
-			if (typeof (IValidatableObject).IsAssignableFrom(typeof (TEntity)))
-			{
-				var validationContext = new ValidationContext(item, null, null);
+		    if (!typeof(IValidatableObject).IsAssignableFrom(typeof(TEntity))) return;
 
-				IEnumerable<ValidationResult> validationResults = ((IValidatableObject) item).Validate(validationContext);
+		    var validationContext = new ValidationContext(item, null, null);
 
-				errors.AddRange(validationResults.Select(vr => vr.ErrorMessage));
-			}
+		    var validationResults = ((IValidatableObject) item).Validate(validationContext);
+
+		    errors.AddRange(validationResults.Select(vr => vr.ErrorMessage));
 		}
 
-		private void SetValidationAttributeErrors<TEntity>(TEntity item, List<string> errors) where TEntity : class
+		private static void SetValidationAttributeErrors<TEntity>(TEntity item, List<string> errors) where TEntity : class
 		{
 			IEnumerable<string> result = TypeDescriptor.GetProperties(item)
 				.Cast<PropertyDescriptor>()
 				.SelectMany(property => property.Attributes.OfType<ValidationAttribute>(),
 					(property, attribute) => new {property, attribute})
-				.Where(@t => !@t.attribute.IsValid(@t.property.GetValue(item)))
-				.Select(@t => @t.attribute.FormatErrorMessage(string.Empty))
+				.Where(t => !t.attribute.IsValid(t.property.GetValue(item)))
+				.Select(t => t.attribute.FormatErrorMessage(string.Empty))
 				.ToList();
 
 			if (result.Any())

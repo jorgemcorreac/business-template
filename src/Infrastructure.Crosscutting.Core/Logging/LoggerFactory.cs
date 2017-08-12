@@ -4,11 +4,11 @@ namespace Infrastructure.Crosscutting.Core.Logging
 {
 	public static class LoggerFactory
 	{
-		static ILoggerFactory _currentLogFactory;
+	    private static ILoggerFactory _currentLogFactory;
 
 		public static void SetCurrent(ILoggerFactory logFactory)
 		{
-			_currentLogFactory = logFactory;
+		    _currentLogFactory = logFactory ?? throw new ArgumentNullException(nameof(logFactory));
 		}
 
 		public static ILogger CreateLog()
