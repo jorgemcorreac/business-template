@@ -1,0 +1,14 @@
+{
+  "ServerUri": "https://sonarcloud.io",
+  "Organization": {
+    "key": "jorgemcorreac-github",
+    "name": "Jorge Correa"
+  },
+  "ProjectKey": "business-template:master",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "cs-sonar-way-31865",
+      "ProfileTimestamp": "2017-07-28T12:38:47+02:00"
+    }
+  }
+}
