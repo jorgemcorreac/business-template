@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -46,7 +47,7 @@ namespace Api.Controllers
         [ResponseType(typeof (Product))]
 		public async Task<IHttpActionResult> GetProduct(int id)
 		{
-			throw new Exception("Exception to test the overall exception handling");
+			throw new ObjectNotFoundException("Exception to test the overall exception handling");
 
 			var product = await _ctx.Products.FindAsync(id);
 
