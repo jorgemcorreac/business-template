@@ -27,8 +27,7 @@ namespace Api.Controllers
 		/// <param name="ctx"></param>
 		public ProductsController(IStockContext ctx)
 		{
-			if (ctx == null) throw new ArgumentNullException(nameof(ctx));
-			_ctx = ctx;
+            _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
 		}
 
 		// GET: api/Products
