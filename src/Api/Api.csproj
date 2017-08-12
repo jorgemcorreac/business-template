@@ -143,6 +143,10 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <AdditionalFiles Include="..\Modeling\Arquitecture.layerdiagram">
+      <Link>Arquitecture.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,6 +174,10 @@
       <Project>{3fbe7763-3b26-410f-a723-e8831e181405}</Project>
       <Name>Infrastructure.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
