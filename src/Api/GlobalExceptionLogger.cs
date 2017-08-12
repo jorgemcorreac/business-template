@@ -1,4 +1,6 @@
-﻿using System.Web.Http.ExceptionHandling;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Web.Http.ExceptionHandling;
 using Infrastructure.Crosscutting.Core.Logging;
 
 
@@ -9,7 +11,8 @@ namespace Api
 	/// </summary>
 	public class GlobalExceptionLogger: ExceptionLogger
 	{
-		public override void Log(ExceptionLoggerContext context)
+	    /// <inheritdoc />
+	    public override void Log(ExceptionLoggerContext context)
 		{
 			if (context?.Exception != null)
 			{
@@ -19,5 +22,17 @@ namespace Api
 
 			base.Log(context);
 		}
-	}
+
+	    /// <inheritdoc />
+	    public override Task LogAsync(ExceptionLoggerContext context, CancellationToken cancellationToken)
+	    {
+	        if (context?.Exception != null)
+	        {
+	            var log = LoggerFactory.CreateLog();
+	            log.Fatal("An unhandled error occurred", context.Exception);
+	        }
+
+            return base.LogAsync(context, cancellationToken);
+	    }
+    }
 }
