@@ -7,9 +7,7 @@ namespace Domain.Tests
 	[TestClass]
 	public static class AssemblyTestsInitialize
 	{
-		public static bool IsNotifierSendCalled;
-
-		[AssemblyInitialize]
+	    [AssemblyInitialize]
 		public static void InitializeFactories(TestContext context)
 		{
 			EntityValidatorFactory.SetCurrent(new DataAnnotationsEntityValidatorFactory());
